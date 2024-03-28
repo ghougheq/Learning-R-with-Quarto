@@ -1,0 +1,205 @@
+---
+title: "R for Beginners"
+toc: True
+theme:
+  light: cosmo
+  dark: darkly
+---
+
+
+# assignment
+
+```{r}
+x <- 5
+10 -> y
+z = 3
+print(c(x, y, z))
+```
+
+# standard normal distribution
+
+```{r}
+rnorm(5)
+```
+
+# display defined variables
+
+```{r}
+ls()
+ls.str()
+```
+
+# remove a variable from memory
+
+```{r}
+rm(z)
+ls()
+```
+
+# install packages
+
+```{r}
+# install.packages("rmarkdown")
+```
+
+# data type and length
+
+```{r}
+A <- "Gomphotherium"; compar <- TRUE; z <- 1i
+mode(A); mode(compar); mode(z)
+length(A); length(z)
+nchar(A); length(c(A, A, A))
+```
+
+# special values
+
+```{r}
+5 / 0
+Inf - Inf; Inf - 100; -Inf
+NA  # not available
+NaN  # not a number
+```
+
+# string
+
+Single and double quotes serve the same purpose and are interchangeable, but using the latter is recommended.
+
+# regular series
+
+```{r}
+a <- 1:10
+b <- seq(1, 7, 1.2)
+c <- seq(length=6, from=1, to=7)
+a; b; c
+```
+
+```{r}
+d <- rep(0.1, 10)
+d
+```
+
+```{r}
+gl(2, 5, label=c('male', 'female'))
+```
+
+# random variable
+
+```{r}
+rnorm(5, mean=0, sd=1)  # generate random numbers from a normal distribution
+dnorm(0)  # probability density function, the same as `norm.pdf()` in `scipy.stats`
+pnorm(0)  # cumulative distribution function, the same as `norm.cdf()`
+qnorm(0.5)  # quantile function, the same as `norm.ppf()`
+```
+
+# data type conversion
+
+reference: <https://www.geeksforgeeks.org/data-type-conversion-in-r/>
+
+```{r}
+# value assignment 
+name <- "GeeksforGeeks"
+age <- 20
+pwd <- FALSE
+  
+# type checking 
+typeof(name)
+typeof(age)
+typeof(pwd)
+
+
+# value assignment 
+age <- 20 
+pwd <- "FALSE"
+  
+# Converting type 
+as.logical(age)
+as.logical(pwd)
+
+
+# value assignment 
+age <- 20 
+pwd <- FALSE
+
+# Converting type 
+as.character(age)
+as.character(pwd)
+
+
+# value assignment 
+age <- "20"
+pwd <- FALSE
+
+# Converting type 
+as.numeric(age)
+as.numeric(pwd)
+```
+
+# names, labels of objects
+
+```{r}
+x <- c(1, 2, 3)
+names(x)
+names(x) <- c('a', 'b', 'c')
+x
+```
+
+```{r}
+X <- matrix(1:4, 2)
+rownames(X) <- c('a', 'b')
+colnames(X) <- c('c', 'd')
+X
+dimnames(X)
+```
+
+# common used functions
+
+```{r}
+x <- (1:10)*2
+sum(x)
+prod(x)
+max(x)
+min(x)
+which.max(x)
+which.min(x)
+cumsum(x)
+cumprod(x)
+cummax(x)
+cummin(x)
+range(x)  # equivalent to c(min(x), max(x))
+length(x)
+mean(x)
+median(x)
+var(x); cov(x, x)  # the denominator is n-1
+which(rep(c('boy','girl'),3)=='boy')
+choose(5, 2)
+```
+
+# general programming
+
+```{r}
+x <- 2
+for (i in 3:100) {
+    if (!any(i %% seq(2, ceiling(sqrt(i))) == 0)) {
+        x <- c(x, i)
+    }
+}
+x
+
+y <- 1
+while (y < 100) {
+    if (y %in% x)
+        print(y)
+    y <- y + 1
+}
+
+z <- 1
+repeat {
+    if (z %in% x) print(z)
+    z <- z + 1
+    if (z > 99) break
+}
+```
+
+There is not `goto` statement in R.
+
+The `next` statement in R serves the same function as `continue` in Python and C++. But There is not `continue` statement in R.
